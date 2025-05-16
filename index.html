@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="es">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>
+   PhoenixFrame
+  </title>
+  <link href="css/styles.css" rel="stylesheet"/>
+ </head>
+ <body>
+  <!-- El Umbral -->
+  <section class="pantalla activa" id="umbral">
+   <div class="fondo-mistico">
+   </div>
+   <div id="particles-js">
+   </div>
+   <div class="contenido-central">
+    <img alt="Símbolo del Fénix" class="simbolo-fenix" src="assets/images/phoenix-symbol.png"/>
+   </div>
+  </section>
+  <!-- Las Cenizas -->
+  <section class="pantalla" id="cenizas">
+   <div id="particles-cenizas">
+   </div>
+   <div class="cenizas-animadas">
+   </div>
+   <div class="contenido-central">
+    <h1>
+     Todo lo que no arde, muere.
+    </h1>
+    <p>
+     El olvido cubre lo que una vez brilló. Solo el fuego puede recordarles quiénes fueron.
+    </p>
+    <div class="sigilo" id="irAlFuego" title="Despertar el fuego">
+     <img alt="Logo Fuego" src="assets/images/logo.cenizas.png"/>
+    </div>
+   </div>
+  </section>
+  <!-- El Fuego -->
+  <section class="pantalla" id="fuego">
+   <div class="contenido-central">
+    <h1>
+     El fuego revela. El fuego transforma.
+    </h1>
+    <div class="llamas">
+     <div class="llama digital" data-label="Digital">
+     </div>
+     <div class="llama fisico" data-label="Físico">
+     </div>
+     <div class="llama experiencias" data-label="Experiencias">
+     </div>
+    </div>
+   </div>
+  </section>
+  <!-- La Llama Interna -->
+  <section class="pantalla" id="llama-interna">
+   <div class="contenido-central">
+    <h1>
+     Elige tu llama
+    </h1>
+    <p>
+     ¿Con qué fuego deseas renacer?
+    </p>
+    <div class="intenciones">
+     <button class="intencion" data-camino="poder">
+      Poder
+     </button>
+     <button class="intencion" data-camino="claridad">
+      Claridad
+     </button>
+     <button class="intencion" data-camino="deseo">
+      Deseo
+     </button>
+    </div>
+   </div>
+  </section>
+  <!-- La Visión -->
+  <section class="pantalla" id="vision">
+   <div class="contenido-central">
+    <h1 id="vision-titulo">
+     Visión
+    </h1>
+    <p id="vision-mensaje">
+     Aquí aparecerá tu visión según tu fuego elegido.
+    </p>
+   </div>
+  </section>
+  <!-- El Renacer -->
+  <section class="pantalla" id="renacer">
+   <div class="contenido-central">
+    <h1>
+     Tu llama está lista
+    </h1>
+    <p>
+     Completa el ritual y deja tu intención en las cenizas.
+    </p>
+    <form id="form-renacer">
+     <input name="nombre" placeholder="Tu nombre" required="" type="text"/>
+     <input name="telefono" placeholder="Tu número de teléfono" required="" type="tel"/>
+     <textarea name="razon" placeholder="¿Por qué deberíamos permitirte renacer?" required="" rows="4"></textarea>
+     <button class="enviar" type="submit">
+      Enviar al fuego
+     </button>
+    </form>
+   </div>
+  </section>
+  <audio id="bg-music" loop="" preload="auto" src="sounds/ambient.mp3">
+  </audio>
+  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js">
+  </script>
+  <script src="js/particles-config.js">
+  </script>
+  <script src="js/main.js">
+  </script>
+  <div class="luz-intermitente" id="efecto-luz" style="display: none;">
+  </div>
+  <div class="burn-transition" id="burn-effect" style="display: none;">
+  </div>
+  <div class="transicion-fuego" id="flash-fuego" style="display: none;">
+  </div>
+ </body>
+</html>

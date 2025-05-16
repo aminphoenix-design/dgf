@@ -1,0 +1,480 @@
+body, html {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  font-family: 'Georgia', serif;
+  background-color: #000;
+  color: #fff;
+  overflow: hidden;
+}
+
+.pantalla {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  text-align: center;
+  background-color: #000;
+}
+
+.pantalla.activa {
+  display: flex;
+}
+
+.contenido-central {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Fénix */
+.simbolo-fenix {
+  width: 60vw;
+  max-width: 700px;
+  height: auto;
+  cursor: pointer;
+  transition: transform 0.4s ease, filter 0.4s ease;
+  filter: drop-shadow(0 0 20px violet);
+  opacity: 0;
+  transform: scale(0.8);
+  animation: entradaFenix 2s ease-out forwards;
+}
+
+.simbolo-fenix:hover {
+  transform: scale(1.2);
+  filter: drop-shadow(0 0 30px gold);
+}
+
+@keyframes entradaFenix {
+  0% { opacity: 0; transform: scale(0.8); }
+  60% { opacity: 1; transform: scale(1.05); }
+  100% { opacity: 1; transform: scale(1); }
+}
+
+/* Sigilo */
+.sigilo {
+  width: 60px;
+  height: 60px;
+  margin-top: 2rem;
+  background: radial-gradient(circle, violet, gold);
+  border-radius: 50%;
+  box-shadow: 0 0 20px #7c3aed66;
+  cursor: pointer;
+  transition: transform 0.5s ease;
+}
+
+.sigilo:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 30px #d4af37aa;
+}
+
+/* Llamas */
+.llamas {
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  margin-top: 2rem;
+  flex-wrap: wrap;
+}
+
+.llama {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background: radial-gradient(circle at center, #7c3aed 0%, #000 70%);
+  box-shadow: 0 0 20px #7c3aed88;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.5s ease;
+}
+
+.llama:hover {
+  transform: scale(1.1);
+  background: radial-gradient(circle at center, #d4af37 0%, #000 70%);
+  box-shadow: 0 0 30px #d4af37aa;
+}
+
+/* Intenciones */
+.intenciones {
+  display: flex;
+  gap: 1.5rem;
+  margin-top: 2rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.intencion {
+  background: none;
+  border: 2px solid #d4af37;
+  color: #d4af37;
+  padding: 0.8rem 1.5rem;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+.intencion:hover {
+  background: #d4af37;
+  color: #000;
+}
+
+/* Visión */
+#vision-mensaje {
+  margin-top: 1.2rem;
+  max-width: 600px;
+  color: #bbb;
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+/* Formulario */
+form {
+  margin-top: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  width: 100%;
+  max-width: 400px;
+}
+
+input, textarea {
+  padding: 0.6rem;
+  background: #111;
+  border: 1px solid #444;
+  color: #fff;
+}
+
+button.enviar {
+  background: #7c3aed;
+  border: none;
+  padding: 0.7rem;
+  cursor: pointer;
+  color: #fff;
+  transition: background 0.3s ease;
+}
+
+button.enviar:hover {
+  background: #d4af37;
+  color: #000;
+}
+
+/* Umbral: fondo */
+#umbral {
+  position: relative;
+  background-color: #000;
+  overflow: hidden;
+}
+
+#umbral::before,
+#umbral::after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  mix-blend-mode: screen;
+  z-index: 0;
+}
+
+#umbral::before {
+  width: 200px;
+  height: 200px;
+  background: radial-gradient(circle, rgba(124, 58, 237, 0.2) 0%, transparent 80%);
+  top: 20%;
+  left: 10%;
+  animation: resplandorVioleta 20s linear infinite alternate;
+}
+
+#umbral::after {
+  width: 150px;
+  height: 150px;
+  background: radial-gradient(circle, rgba(212, 175, 55, 0.2) 0%, transparent 80%);
+  bottom: 15%;
+  right: 10%;
+  animation: resplandorDorado 25s linear infinite alternate;
+}
+
+@keyframes resplandorVioleta {
+  0%   { transform: translate(0, 0) scale(1); opacity: 0.5; }
+  50%  { transform: translate(40px, -30px) scale(1.2); opacity: 0.7; }
+  100% { transform: translate(-20px, 20px) scale(1); opacity: 0.4; }
+}
+
+@keyframes resplandorDorado {
+  0%   { transform: translate(0, 0) scale(1); opacity: 0.4; }
+  50%  { transform: translate(-30px, 20px) scale(1.1); opacity: 0.6; }
+  100% { transform: translate(10px, -20px) scale(1); opacity: 0.3; }
+}
+
+/* Partículas */
+#particles-js {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+
+/* 🔮 Fondo místico animado */
+.fondo-mistico {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle at 30% 40%, rgba(124, 58, 237, 0.15), transparent 60%),
+              radial-gradient(circle at 70% 60%, rgba(212, 175, 55, 0.1), transparent 70%),
+              radial-gradient(circle at 50% 90%, rgba(255, 255, 255, 0.05), transparent 80%);
+  animation: fuegoMistico 20s ease-in-out infinite;
+  z-index: -2;
+  pointer-events: none;
+  mix-blend-mode: screen;
+}
+
+@keyframes fuegoMistico {
+  0%   { transform: scale(1) translate(0, 0); opacity: 0.5; }
+  50%  { transform: scale(1.05) translate(-2%, -1%); opacity: 0.65; }
+  100% { transform: scale(1) translate(0, 0); opacity: 0.5; }
+}
+
+/* ✨ Cenizas animadas */
+.cenizas-animadas {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.cenizas-animadas::before,
+.cenizas-animadas::after {
+  content: "";
+  position: absolute;
+  width: 3px;
+  height: 3px;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 50%;
+  animation: flotarCeniza 12s linear infinite;
+}
+
+.cenizas-animadas::after {
+  left: 60%;
+  top: 80%;
+  animation-delay: 3s;
+  animation-duration: 14s;
+}
+
+@keyframes flotarCeniza {
+  0%   { transform: translateY(0) scale(1); opacity: 0; }
+  10%  { opacity: 0.4; }
+  50%  { transform: translateY(-50vh) scale(1.2); opacity: 0.3; }
+  100% { transform: translateY(-100vh) scale(0.8); opacity: 0; }
+}
+
+
+
+/* Fondo de cenizas y partículas en #cenizas */
+#cenizas {
+  position: relative;
+  background: url('../assets/images/fondo.cenizas.png') center center / cover no-repeat;
+  animation: fondoCenizasMovimiento 18s ease-in-out infinite;
+  overflow: hidden;
+}
+
+@keyframes fondoCenizasMovimiento {
+  0%   { background-position: center center; }
+  50%  { background-position: 48% 52%; }
+  100% { background-position: center center; }
+}
+  position: relative;
+  background: url('../assets/images/fondo.cenizas.png') center center / cover no-repeat;
+  overflow: hidden;
+}
+
+#particles-cenizas {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+
+/* Logo dentro del sigilo */
+.sigilo {
+  position: relative;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: radial-gradient(circle, violet, gold);
+  box-shadow: 0 0 20px #7c3aed66;
+  margin-top: 2rem;
+  cursor: pointer;
+  z-index: 1;
+  transition: transform 0.5s ease;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.sigilo img {
+  width: 90%;
+  height: 90%;
+  object-fit: contain;
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.sigilo:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 30px #d4af37aa;
+}
+
+
+.pantalla.fade-out {
+  animation: fadeOut 1s forwards ease;
+  z-index: 10;
+}
+
+.pantalla.fade-in {
+  animation: fadeIn 1.2s forwards ease;
+  z-index: 20;
+}
+
+@keyframes fadeOut {
+  0%   { opacity: 1; transform: scale(1); }
+  100% { opacity: 0; transform: scale(0.95); }
+}
+
+@keyframes fadeIn {
+  0%   { opacity: 0; transform: scale(1.05); }
+  100% { opacity: 1; transform: scale(1); }
+}
+
+/* Luz intermitente */
+.luz-intermitente {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle, rgba(255,255,255,0.15) 0%, transparent 80%);
+  pointer-events: none;
+  z-index: 50;
+  animation: parpadeoLuz 1s ease-in-out;
+}
+
+@keyframes parpadeoLuz {
+  0%, 100% { opacity: 0; }
+  30% { opacity: 0.6; }
+  50% { opacity: 0.2; }
+  70% { opacity: 0.8; }
+}
+
+
+
+.llamas {
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  margin-top: 2rem;
+  flex-wrap: wrap;
+}
+
+.llama {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  position: relative;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  animation: pulsoFuego 3s ease-in-out infinite;
+  cursor: pointer;
+  z-index: 1;
+}
+
+.llama:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 25px rgba(255, 150, 0, 0.6);
+}
+
+.llama.digital {
+  background-image: url('../assets/images/llama-digital.png');
+}
+
+.llama.fisico {
+  background-image: url('../assets/images/llama-fisico.png');
+}
+
+.llama.experiencias {
+  background-image: url('../assets/images/llama-experiencias.png');
+}
+
+.llama::after {
+  content: attr(data-label);
+  position: absolute;
+  bottom: -1.6rem;
+  width: 100%;
+  text-align: center;
+  font-size: 0.9rem;
+  color: #ffd;
+  text-shadow: 0 0 5px #000;
+}
+
+@keyframes pulsoFuego {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+
+
+
+.burn-transition {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle, rgba(255,100,0,0.4), rgba(0,0,0,0.9));
+  animation: burnPage 1s ease forwards;
+  pointer-events: none;
+  z-index: 100;
+  mix-blend-mode: screen;
+}
+
+@keyframes burnPage {
+  0%   { opacity: 0; transform: scale(1); }
+  40%  { opacity: 1; transform: scale(1.05); }
+  80%  { opacity: 0.7; }
+  100% { opacity: 0; transform: scale(1); }
+}
+
+
+
+/* Fondo en El Fuego */
+#fuego {
+  position: relative;
+  background: url('../assets/images/fondo.fuego.png') center center / cover no-repeat;
+  overflow: hidden;
+}
+
+/* Transición de fuego a llama interna */
+.transicion-fuego {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle, rgba(255,170,0,0.7), rgba(0,0,0,0.8));
+  animation: transicionFuego 0.9s ease-out forwards;
+  pointer-events: none;
+  z-index: 100;
+}
+
+@keyframes transicionFuego {
+  0% { opacity: 0; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.05); }
+  100% { opacity: 0; transform: scale(1); }
+}
